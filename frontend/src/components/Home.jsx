@@ -97,7 +97,7 @@ function Home() {
         </div>
         <div className="flex justify-center items-center mt-8">
           <input
-            className="w-4/6 appearance-none bg-gray-200 h-12 rounded-full outline-none"
+            className="w-4/6 appearance-none bg-gray-200 h-12 rounded-full outline-none slider"
             type="range"
             min="0"
             max="100"
@@ -106,6 +106,7 @@ function Home() {
             onMouseUp={handleSliderRelease}
             style={{
               background: `linear-gradient(to right, #3182ce 10%, #3182ce ${sliderPosition}%, #d1d5db ${sliderPosition}%, #d1d5db 100%)`,
+              transition: "all 5s ease-in-out", // Add transition effect
             }}
           />
         </div>

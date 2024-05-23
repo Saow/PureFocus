@@ -1,0 +1,7 @@
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0; /* Set the width to 0 to hide the thumb */
+    height: 0; /* Set the height to 0 to hide the thumb */
+  }
+  
