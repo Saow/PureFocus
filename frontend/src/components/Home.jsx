@@ -22,9 +22,20 @@ function Home() {
     const newOpenings = openings + 1;
     localStorage.setItem("totalAppOpenings", newOpenings);
     setTotalAppOpenings(newOpenings);
+
+    // Retrieve the timer state from localStorage
+    const storedTimerState = JSON.parse(localStorage.getItem("timerState"));
+    if (storedTimerState) {
+      const { timerRunning, timerSeconds } = storedTimerState;
+      setTimerRunning(timerRunning);
+      setTimerSeconds(timerSeconds);
+    }
   }, []);
 
   useEffect(() => {
+    // Save the timer state to localStorage
+    localStorage.setItem("timerState", JSON.stringify({ timerRunning, timerSeconds }));
+    
     // Timer effect
     let interval;
     if (timerRunning) {
@@ -40,7 +51,12 @@ function Home() {
       }, 1000);
     }
     return () => clearInterval(interval);
-  }, [timerRunning]);
+  }, [timerRunning, timerSeconds]);
+
+  useEffect(() => {
+    // Update the document title with the timer value
+    document.title = formatTime(timerSeconds) + " | Focus Timer";
+  }, [timerSeconds]);
 
   const startTimer = (durationInSeconds) => {
     setTimerSeconds(durationInSeconds);
@@ -64,9 +80,6 @@ function Home() {
   };
 
   const handleSliderRelease = () => {
-    if (sliderPosition) {
-      setSliderPosition(0);
-    }
     if (sliderPosition > 90) {
       setSliderPosition(0); // Reset slider position to 0%
       setTimerSeconds(0); // Reset timer

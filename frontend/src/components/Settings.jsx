@@ -7,6 +7,9 @@ function Settings() {
     alert("Total app openings have been reset.");
   };
 
+  // functionality for the settings page
+
+
   return (
     <div className="p-5">
       <h1>Settings</h1>

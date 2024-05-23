@@ -1,3 +1,4 @@
+// App.jsx
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import Home from "./components/Home";
@@ -28,21 +29,28 @@ function App() {
     };
   }, []);
 
+  const stopTimer = () => {
+    const timerState = JSON.parse(localStorage.getItem("timerState"));
+    if (timerState && timerState.timerRunning) {
+      localStorage.setItem("timerState", JSON.stringify({ timerRunning: false, timerSeconds: 0 }));
+    }
+  };
+
   return (
     <div className="overflow-y-hidden">
       <div className="flex-grow">
-        {currentPage === "home" && <Home />}
+        {currentPage === "home" && <Home onStopTimer={stopTimer} />}
         {currentPage === "settings" && <Settings />}
       </div>
       <footer className="bg-gray-800 text-white flex justify-evenly absolute bottom-0 w-full">
         <button
-          className="hover:bg-gray-700 hover:p-5 rounded px-5 p-8"
+          className="hover:opacity-70 rounded px-5 p-8"
           onClick={() => (window.location.hash = "#")}
         >
           <span class="material-symbols-rounded">home</span>
         </button>
         <button
-          className="hover:bg-gray-700 hover:p-5 px-5 rounded p-8"
+          className="hover:opacity-70 px-5 rounded p-8"
           onClick={() => (window.location.hash = "#settings")}
         >
           <span class="material-symbols-rounded">settings</span>
