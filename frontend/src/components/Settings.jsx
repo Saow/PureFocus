@@ -12,7 +12,7 @@ function Settings() {
 
   return (
     <div className="p-5">
-      <h1>Settings</h1>
+      <h1 className="text-3xl">Settings</h1>
       <p>Settings page content</p>
       <button
         className="bg-red-400 p-2 rounded-md hover:bg-red-500 transition-all mt-4"

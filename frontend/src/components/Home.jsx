@@ -89,9 +89,9 @@ function Home() {
 
   return (
     <div>
-      <div className="bg-gray-100">
-        <div className="p-7 h-52">
-          <h1 className="text-2xl mb-2 font-serif">
+      <div className="">
+        <div className="p-5">
+          <h1 className="text-2xl mb-2 font-serif flex flex-row">
             Welcome to keep your
             <br />
             <i>Focus pure</i>
@@ -128,6 +128,12 @@ function Home() {
             onClick={() => startTimer(1500)}
           >
             25 Minutes
+          </button>
+          <button
+            className="bg-blue-400 p-2 rounded-md hover:bg-blue-500 transition-all"
+            onClick={() => startTimer(3600)}
+            >
+            1 hour
           </button>
         </div>
         <div className="flex justify-center items-center mt-8">
