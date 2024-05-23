@@ -30,25 +30,25 @@ function App() {
 
   return (
     <div className="overflow-y-hidden">
-  <div className="flex-grow">
-    {currentPage === "home" && <Home />}
-    {currentPage === "settings" && <Settings />}
-  </div>
-  <footer className="bg-gray-800 text-white flex justify-evenly absolute bottom-0 w-full">
-    <button
-      className="hover:bg-gray-700 rounded px-4 py-2"
-      onClick={() => (window.location.hash = "#")}
-    >
-      Home
-    </button>
-    <button
-      className="hover:bg-gray-700  rounded p-8"
-      onClick={() => (window.location.hash = "#settings")}
-    >
-      Settings
-    </button>
-  </footer>
-</div>
+      <div className="flex-grow">
+        {currentPage === "home" && <Home />}
+        {currentPage === "settings" && <Settings />}
+      </div>
+      <footer className="bg-gray-800 text-white flex justify-evenly absolute bottom-0 w-full">
+        <button
+          className="hover:bg-gray-700 hover:p-5 rounded px-5 p-8"
+          onClick={() => (window.location.hash = "#")}
+        >
+          <span class="material-symbols-rounded">home</span>
+        </button>
+        <button
+          className="hover:bg-gray-700 hover:p-5 px-5 rounded p-8"
+          onClick={() => (window.location.hash = "#settings")}
+        >
+          <span class="material-symbols-rounded">settings</span>
+        </button>
+      </footer>
+    </div>
   );
 }
 
