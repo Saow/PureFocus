@@ -104,8 +104,9 @@ function Home() {
             value={sliderPosition}
             onChange={handleSliderChange}
             onMouseUp={handleSliderRelease}
+            onTouchEnd={handleSliderRelease}
             style={{
-              background: `linear-gradient(to right, #3182ce 10%, #3182ce ${sliderPosition}%, #d1d5db ${sliderPosition}%, #d1d5db 100%)`,
+              background: `linear-gradient(to right, #60a5fa 20%, #3182ce ${sliderPosition}%, #d1d5db ${sliderPosition}%, #d1d5db 100%)`,
               transition: "all 5s ease-in-out", // Add transition effect
             }}
           />
