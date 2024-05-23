@@ -2,17 +2,30 @@ import React, { useState, useEffect } from "react";
 
 function Home() {
   const [totalAppOpenings, setTotalAppOpenings] = useState(0);
+  const [totalTimerUses, setTotalTimerUses] = useState(0);
   const [timerSeconds, setTimerSeconds] = useState(0);
   const [timerRunning, setTimerRunning] = useState(false);
   const [sliderPosition, setSliderPosition] = useState(0);
 
   useEffect(() => {
-    // Check if localStorage has a value for totalAppOpenings
+    // Check if localStorage has values for totalAppOpenings and totalTimerUses
     const storedOpenings = localStorage.getItem("totalAppOpenings");
+    const storedTimerUses = localStorage.getItem("totalTimerUses");
+    
     const openings = storedOpenings ? parseInt(storedOpenings) : 0;
-    setTotalAppOpenings(openings);
+    const timerUses = storedTimerUses ? parseInt(storedTimerUses) : 0;
 
-    // Clean up function to clear the timer interval when component unmounts
+    setTotalAppOpenings(openings);
+    setTotalTimerUses(timerUses);
+
+    // Increment the totalAppOpenings on component mount
+    const newOpenings = openings + 1;
+    localStorage.setItem("totalAppOpenings", newOpenings);
+    setTotalAppOpenings(newOpenings);
+  }, []);
+
+  useEffect(() => {
+    // Timer effect
     let interval;
     if (timerRunning) {
       interval = setInterval(() => {
@@ -32,6 +45,11 @@ function Home() {
   const startTimer = (durationInSeconds) => {
     setTimerSeconds(durationInSeconds);
     setTimerRunning(true);
+    
+    // Increment the totalTimerUses
+    const newTimerUses = totalTimerUses + 1;
+    localStorage.setItem("totalTimerUses", newTimerUses);
+    setTotalTimerUses(newTimerUses);
   };
 
   const formatTime = (seconds) => {
@@ -68,6 +86,10 @@ function Home() {
           <p>
             <b className="text-xl">{totalAppOpenings}</b>
             <br /> Total Openings
+          </p>
+          <p>
+            <b className="text-xl">{totalTimerUses}</b>
+            <br /> Total Timer Uses
           </p>
         </div>
       </div>

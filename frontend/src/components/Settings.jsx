@@ -3,6 +3,7 @@ import React from "react";
 function Settings() {
   const resetLocalStorage = () => {
     localStorage.removeItem("totalAppOpenings");
+    localStorage.removeItem("totalTimerUses");
     alert("Total app openings have been reset.");
   };
 
