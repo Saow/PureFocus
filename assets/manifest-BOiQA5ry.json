@@ -1,7 +1,7 @@
 {
   "name": "Purefocus",
-  "short_name": "Purefocus",
-  "start_url": "/purefocus/",
+  "short_name": "PureFocus",
+  "start_url": "/PureFocus/",
   "display": "standalone",
   "background_color": "#ffffff",
   "description": "App to help you keep your focus pure",
@@ -40,7 +40,7 @@
   "related_applications": [
     {
       "platform": "web",
-      "url": "https://saow.github.io/purefocus/"
+      "url": "https://saow.github.io/PureFocus/"
     }
   ]
 }
